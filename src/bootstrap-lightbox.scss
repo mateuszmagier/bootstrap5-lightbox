@@ -1,0 +1,97 @@
+$sideContainerWidth: 250px;
+$bottomContainerHeight: 100px;
+$imageTopMargin: 20px;
+
+.bootstrap-lightbox-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999999;
+  backdrop-filter: blur(2px);
+  animation-duration: .35s;
+
+  &--hidden {
+    display: none!important;
+  }
+}
+
+.bootstrap-lightbox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, .6);
+
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    height: calc(100vh - $bottomContainerHeight);
+
+    &__logo {
+      width: $sideContainerWidth;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+
+      &__img {
+        max-width: $sideContainerWidth - 50px;
+      }
+    }
+
+    &__image-container {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      margin-top: $imageTopMargin;
+
+      &__img {
+        max-height: calc(100vh - $bottomContainerHeight - $imageTopMargin);
+        max-width: calc(100vw - 400px);
+      }
+    }
+
+    &__controls {
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      width: $sideContainerWidth;
+      padding-top: 10px;
+      padding-right: 10px;
+
+      .bi {
+        font-size: 26px;
+      }
+
+      .btn-close {
+        width: 52px;
+        height: 53px;
+        padding: 0!important;
+        margin-left: 20px;
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__bottom {
+    height: $bottomContainerHeight;
+    width: 100%;
+
+    &__zoom {
+      display: flex;
+      align-items: center;
+      max-width: 40%;
+      margin: 0 auto;
+      position: relative;
+      transform: translateY(-50%);
+      top: 50%;
+    }
+
+    .bi {
+      font-size: 26px;
+    }
+  }
+}
