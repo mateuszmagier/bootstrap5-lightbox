@@ -55,7 +55,7 @@ export class BootstrapLightboxBuilder {
         this.galleryContainer.innerHTML = `
             <div class="bootstrap-lightbox__top">
                 <div class="bootstrap-lightbox__top__logo">
-                    <img class="bootstrap-lightbox__top__logo__img" src="${this.logoUri}" alt="Bootstrap 5 Lightbox logo">
+                    ${this.getLogo()}
                 </div>
                 <div class="bootstrap-lightbox__top__image-container">
                     <img class="bootstrap-lightbox__top__image-container__img" src="${this.currentActiveImage}" alt="Bootstrap 5 Lightbox active image">
@@ -73,6 +73,14 @@ export class BootstrapLightboxBuilder {
             </div>
         `;
         this.galleryOverlay.appendChild(this.galleryContainer);
+    }
+
+    private getLogo(): string {
+        if (this.logoUri) {
+            return `<img class="bootstrap-lightbox__top__logo__img" src="${this.logoUri}" alt="Bootstrap 5 Lightbox logo">`
+        } else {
+            return '';
+        }
     }
 
     private getControls(): string {
